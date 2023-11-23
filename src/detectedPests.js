@@ -1,18 +1,30 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet ,ScrollView} from 'react-native';
+import React,{useRef} from 'react';
+import { View, Text, TouchableOpacity, StyleSheet ,ScrollView, TextInput} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-const DetectedPests = () => {
+import { Camera } from 'react-native-vision-camera';
+import { useNavigation } from '@react-navigation/native';
 
+const DetectedPests = () => {
+  const navigation = useNavigation();
+  const cameraRef = useRef(null);
+
+  const handleImagePress = () => {
+    navigation.navigate('VisionCameraScreen');
+  };
   return (
     <ScrollView>
     <LinearGradient colors={['#1e90ff', '#f0e68c']} style={styles.container}>
       <View style={styles.container}>
         <Text style={styles.title}>Detected Pests</Text>
-
+{/* 
         <View style={styles.card1}>
           <Text style={styles.cardTitle}>Image</Text>
-        </View>
-
+        </View> */}
+    <TouchableOpacity onPress={handleImagePress}>
+            <View style={styles.card1}>
+              <Text style={styles.cardTitle}>Image</Text>
+            </View>
+          </TouchableOpacity>
         <View style={styles.touchablesContainer}>
           <TouchableOpacity style={styles.touchable1} >
             <Text style={styles.touchableText}>Select Insect</Text>
@@ -20,11 +32,11 @@ const DetectedPests = () => {
         </View>
 
         <View style={styles.card2}>
-          <Text style={styles.listItem}>Species</Text>
-          <Text style={styles.listItem}>Description</Text>
-          <Text style={styles.listItem}>Habitat</Text>
-          <Text style={styles.listItem}>Location</Text>
-          <Text style={styles.listItem}>Physical Characteristics</Text>
+        <TextInput style={styles.input} placeholder="Species" />
+          <TextInput style={styles.input} placeholder="Description" />
+          <TextInput style={styles.input} placeholder="Habitat" />
+          <TextInput style={styles.input} placeholder="Location" />
+          <TextInput style={styles.input} placeholder="Physical Characteristics" />
         </View>
 
         <View style={{ marginTop: 15 }}>
@@ -143,13 +155,15 @@ const styles = StyleSheet.create({
     // left: 0,
     // right: 0,
     alignItems: 'center',
+    marginTop:10,
+
 
   },
   fullWidthTouchableText: {
     color: 'black',
     fontWeight: 'bold',
     fontSize: 30,
-    marginVertical:10,
+    marginVertical:5,
   },
   betaSection: {
     // position: 'absolute',
@@ -170,6 +184,24 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '800',
     color: 'black',
+  },
+  input: {
+    height: 35,
+    borderColor: 'gray',
+    // borderWidth: 1,
+    marginBottom: 2,
+    paddingLeft: 10,
+    width: '80%',
+    borderBottomWidth: 1,
+
+    color:'black',
+    borderBottomColor: '#ffffff',
+  },
+  input22: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#ffffff',
+    color: '#ffffff',
+    marginBottom: 2,
   },
 });
 

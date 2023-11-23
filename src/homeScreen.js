@@ -1,22 +1,26 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet,ScrollView } from 'react-native';
+import React, {useRef, useEffect} from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Image,ScrollView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
-
+import MapView, { Marker } from 'react-native-maps';
+import { WebView } from 'react-native-webview';
 const HomeScreen = () => {
   const navigation = useNavigation();
 
   return (
     <ScrollView>
-    <LinearGradient colors={['#1e90ff', '#f0e68c']} style={styles.container}>
-    
+      <LinearGradient colors={['#1e90ff', '#f0e68c']} style={styles.container}>
+
         <View style={styles.container}>
           <Text style={styles.title}>AI Climate Smart Pest Management</Text>
 
           <View style={styles.card1}>
-            <Text style={styles.cardTitle}>MAP</Text>
+          
+             <Image
+        source={require('../asssets/mapimage.jpeg')}
+        style={styles.mapImage}
+      />
           </View>
-
           <View style={styles.touchablesContainer}>
             <TouchableOpacity style={styles.touchable1} onPress={() => navigation.navigate('farmSection')}>
               <Text style={styles.touchableText}>My Farm</Text>
@@ -48,7 +52,7 @@ const HomeScreen = () => {
             <View style={styles.line}></View>
           </View>
         </View>
-    </LinearGradient>
+      </LinearGradient>
     </ScrollView>
 
   );
@@ -155,6 +159,21 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     width: '100%',
     marginTop: 2,
+  },
+  mapContainer: {
+    height: 300, 
+    width: '100%',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  mapImage: {
+    width: '100%',
+    height: '100%',
+  borderRadius: 30,
+    resizeMode: 'cover',
   },
 });
 
