@@ -27,11 +27,12 @@ const SignupScreen = () => {
   };
   return (
 
+
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}
     >
-      <LinearGradient colors={['#1e90ff', '#f0e68c']} style={styles.container}>
+      <LinearGradient colors={['#1e90ff', '#f0e68c']} style={[styles.container, { paddingHorizontal: 30 }]}>
 
         <Text style={styles.title}>AI Climate Smart Pest Management</Text>
         <Text style={styles.welcomeText}>Welcome</Text>
@@ -76,27 +77,29 @@ const SignupScreen = () => {
         </Formik>
       </LinearGradient>
     </KeyboardAvoidingView>
-
   );
 };
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
   },
   title: {
-    fontSize: 40,
+    fontSize: 35,
     fontWeight: 'bold',
     color: '#ffffff',
     marginBottom: 45,
     marginTop: 50,
     alignItems: 'center',
-    marginHorizontal: 35,
+    textAlign: "center"
+    // marginHorizontal: 35,
   },
   welcomeText: {
-    fontSize: 32,
+    fontSize: 30,
     fontWeight: "600",
     color: '#ffffff',
-    marginLeft: 20,
+    // marginLeft: 20,
+    textAlign: "center",
     marginBottom: 80,
   },
   inputContainer: {
@@ -105,10 +108,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 40,
   },
   input: {
-    borderBottomWidth: 1,
-    borderBottomColor: '#ffffff',
+    borderWidth: 1,
+    borderColor: '#ffffff',
     color: '#ffffff',
-    marginBottom: 2,
+    borderRadius: 8,
+    marginBottom: 10,
   },
   buttonContainer: {
     flexDirection: 'row',

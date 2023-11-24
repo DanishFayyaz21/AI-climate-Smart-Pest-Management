@@ -1,69 +1,72 @@
-import React,{useRef} from 'react';
-import { View, Text, TouchableOpacity, StyleSheet ,ScrollView, TextInput} from 'react-native';
+import React, { useRef } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, TextInput } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { Camera } from 'react-native-vision-camera';
 import { useNavigation } from '@react-navigation/native';
 
 const DetectedPests = () => {
   const navigation = useNavigation();
-  const cameraRef = useRef(null);
+  const camera = useRef(null);
 
   const handleImagePress = () => {
     navigation.navigate('VisionCameraScreen');
   };
+
+
+
   return (
     <ScrollView>
-    <LinearGradient colors={['#1e90ff', '#f0e68c']} style={styles.container}>
-      <View style={styles.container}>
-        <Text style={styles.title}>Detected Pests</Text>
-{/* 
+      <LinearGradient colors={['#1e90ff', '#f0e68c']} style={styles.container}>
+        <View style={styles.container}>
+          <Text style={styles.title}>Detected Pests</Text>
+          {/* 
         <View style={styles.card1}>
           <Text style={styles.cardTitle}>Image</Text>
         </View> */}
-    <TouchableOpacity onPress={handleImagePress}>
+          <TouchableOpacity onPress={handleImagePress}>
             <View style={styles.card1}>
               <Text style={styles.cardTitle}>Image</Text>
             </View>
           </TouchableOpacity>
-        <View style={styles.touchablesContainer}>
-          <TouchableOpacity style={styles.touchable1} >
-            <Text style={styles.touchableText}>Select Insect</Text>
+          <View style={styles.touchablesContainer}>
+            <TouchableOpacity style={styles.touchable1} >
+              <Text style={styles.touchableText}>Select Insect</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.card2}>
+            <TextInput style={styles.input} placeholder="Species" />
+            <TextInput style={styles.input} placeholder="Description" />
+            <TextInput style={styles.input} placeholder="Habitat" />
+            <TextInput style={styles.input} placeholder="Location" />
+            <TextInput style={styles.input} placeholder="Physical Characteristics" />
+          </View>
+
+          <View style={{ marginTop: 15 }}>
+            <TouchableOpacity style={styles.touchable3} >
+              <Text style={styles.touchableText2}>Recomended Pesticides</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.touchablesContainer}>
+
+            <TouchableOpacity style={styles.touchable2} >
+              <Text style={styles.touchableText2}>Home</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.touchable2} >
+              <Text style={styles.touchableText2}>User Account</Text>
+            </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity style={styles.fullWidthTouchable} >
+            <Text style={styles.fullWidthTouchableText}>Terms and Conditions</Text>
           </TouchableOpacity>
-        </View>
 
-        <View style={styles.card2}>
-        <TextInput style={styles.input} placeholder="Species" />
-          <TextInput style={styles.input} placeholder="Description" />
-          <TextInput style={styles.input} placeholder="Habitat" />
-          <TextInput style={styles.input} placeholder="Location" />
-          <TextInput style={styles.input} placeholder="Physical Characteristics" />
+          <View style={styles.betaSection}>
+            <Text style={styles.betaText}>BETA</Text>
+            <View style={styles.line}></View>
+          </View>
         </View>
-
-        <View style={{ marginTop: 15 }}>
-          <TouchableOpacity style={styles.touchable3} >
-            <Text style={styles.touchableText2}>Recomended Pesticides</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.touchablesContainer}>
-
-          <TouchableOpacity style={styles.touchable2} >
-            <Text style={styles.touchableText2}>Home</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.touchable2} >
-            <Text style={styles.touchableText2}>User Account</Text>
-          </TouchableOpacity>
-        </View>
-
-        <TouchableOpacity style={styles.fullWidthTouchable} >
-          <Text style={styles.fullWidthTouchableText}>Terms and Conditions</Text>
-        </TouchableOpacity>
-
-        <View style={styles.betaSection}>
-          <Text style={styles.betaText}>BETA</Text>
-          <View style={styles.line}></View>
-        </View>
-      </View>
-    </LinearGradient>
+      </LinearGradient>
     </ScrollView>
   );
 };
@@ -94,7 +97,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   card2: {
-    backgroundColor: '#a9a9a9',
+    // backgroundColor: '#a9a9a9',
     marginTop: 5,
     marginLeft: 20,
     marginRight: 20,
@@ -148,22 +151,18 @@ const styles = StyleSheet.create({
   },
   fullWidthTouchable: {
     backgroundColor: '#ff8c00',
-    paddingVertical: 2,
+    paddingHorizontal: 40,
+    paddingVertical: 5,
+    marginVertical: 10,
+    fontSize: 12,
     borderRadius: 10,
-    // marginVertical: 650,
-    // position: 'absolute',
-    // left: 0,
-    // right: 0,
     alignItems: 'center',
-    marginTop:10,
-
-
   },
   fullWidthTouchableText: {
-    color: 'black',
+    color: '#464647',
     fontWeight: 'bold',
-    fontSize: 30,
-    marginVertical:5,
+    fontSize: 25,
+    marginVertical: 10,
   },
   betaSection: {
     // position: 'absolute',
@@ -186,16 +185,17 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   input: {
-    height: 35,
+    // height: 35,
     borderColor: 'gray',
     // borderWidth: 1,
     marginBottom: 2,
     paddingLeft: 10,
     width: '80%',
-    borderBottomWidth: 1,
-
-    color:'black',
-    borderBottomColor: '#ffffff',
+    borderWidth: 1,
+    borderRadius: 10,
+    marginVertical: 10,
+    color: 'black',
+    borderColor: '#ffffff',
   },
   input22: {
     borderBottomWidth: 1,

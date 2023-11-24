@@ -6,8 +6,9 @@ const FarmSection = () => {
   const navigation = useNavigation();
 
   return (
-    <ScrollView>
-      <LinearGradient colors={['#1e90ff', '#f0e68c']} style={styles.container}>
+
+    <LinearGradient colors={['#1e90ff', '#f0e68c']} style={{ flex: 1 }}>
+      <ScrollView>
         <View style={styles.container}>
           <Text style={styles.title}>My Farm Section</Text>
 
@@ -51,8 +52,9 @@ const FarmSection = () => {
             <View style={styles.line}></View>
           </View>
         </View>
-      </LinearGradient>
-    </ScrollView>
+      </ScrollView>
+    </LinearGradient>
+
   );
 };
 
@@ -60,6 +62,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    paddingHorizontal: 15,
   },
   title: {
     fontSize: 38,
@@ -72,10 +75,11 @@ const styles = StyleSheet.create({
   card1: {
     backgroundColor: '#a9a9a9',
     marginTop: 20,
-    marginLeft: 20,
+    // marginLeft: 20,
     paddingVertical: 20,
-    width: 250,
-    marginRight: 20,
+    width: "90%",
+
+    // marginRight: 20,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 30,
@@ -85,9 +89,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#a9a9a9',
     marginTop: 20,
     height: 200,
-    marginLeft: 20,
-    marginRight: 20,
-    width: 320,
+    // marginLeft: 20,
+    // marginRight: 20,
+    width: "90%",
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 30,
@@ -105,42 +109,42 @@ const styles = StyleSheet.create({
   touchable1: {
     backgroundColor: '#ff8c00',
     paddingVertical: 12,
-    paddingHorizontal: 25,
+    paddingHorizontal: 18,
     borderRadius: 20,
-    marginHorizontal: 5,
+    marginHorizontal: 2,
     marginBottom: 10,
   },
   touchable2: {
     backgroundColor: '#ff8c00',
-    paddingVertical: 8,
-    paddingHorizontal: 5,
+
+    padding: 10,
     borderRadius: 20,
-    marginHorizontal: 15,
+
+    marginHorizontal: 2
   },
   touchableText: {
-    color: 'black',
+    color: '#464647',
     fontWeight: 'bold',
     fontSize: 20,
   },
   touchableText2: {
-    color: 'black',
+    color: '#464647',
     fontWeight: 'bold',
     fontSize: 16,
   },
   fullWidthTouchable: {
     backgroundColor: '#ff8c00',
-    paddingVertical: 2,
+    paddingHorizontal: 40,
+    paddingVertical: 5,
+    marginVertical: 10,
+    fontSize: 12,
     borderRadius: 10,
-    // marginVertical: 650,
-    // position: 'absolute',
-    // left: 0,
-    // right: 0,
     alignItems: 'center',
   },
   fullWidthTouchableText: {
-    color: 'black',
+    color: '#464647',
     fontWeight: 'bold',
-    fontSize: 30,
+    fontSize: 25,
     marginVertical: 10,
   },
   betaSection: {

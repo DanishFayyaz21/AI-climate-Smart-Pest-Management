@@ -1,16 +1,25 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
+
 const UserPanel2 = () => {
+  const navigation = useNavigation();
+  const handleImagePress = () => {
+    navigation.navigate('VisionCameraScreen');
+  };
 
   return (
-    <ScrollView>
-      <LinearGradient colors={['#1e90ff', '#f0e68c']} style={styles.container}>
+
+    <LinearGradient colors={['#1e90ff', '#f0e68c']} style={styles.container}>
+      <ScrollView>
         <View style={styles.container}>
           <Text style={styles.title}>User Panel II</Text>
-          <View style={styles.card1}>
-            <Text style={styles.cardTitle}>Image</Text>
-          </View>
+          <TouchableOpacity onPress={handleImagePress}>
+            <View style={styles.card1}>
+              <Text style={styles.cardTitle}>Image</Text>
+            </View>
+          </TouchableOpacity>
           <View style={styles.card2}>
             <Text style={styles.cardTitle}>Inspect Information</Text>
           </View>
@@ -42,8 +51,9 @@ const UserPanel2 = () => {
             <View style={styles.line}></View>
           </View>
         </View>
-      </LinearGradient>
-    </ScrollView>
+      </ScrollView>
+    </LinearGradient>
+
   );
 };
 
@@ -96,7 +106,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   cardTitle: {
-    fontSize: 26,
+    fontSize: 20,
     fontWeight: 'bold',
     color: 'black',
   },
@@ -112,17 +122,19 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   touchable2: {
+
     backgroundColor: '#ff8c00',
     paddingVertical: 8,
     paddingHorizontal: 30,
     borderRadius: 20,
     marginHorizontal: 15,
-    marginRight: 40,
+    marginVertical: 10
+    // marginRight: 40,
   },
   touchableText: {
     color: 'black',
     fontWeight: 'bold',
-    fontSize: 22,
+    fontSize: 20,
   },
   touchableText2: {
     color: 'black',
@@ -131,19 +143,17 @@ const styles = StyleSheet.create({
   },
   fullWidthTouchable: {
     backgroundColor: '#ff8c00',
-    paddingVertical: 2,
+    paddingHorizontal: 40,
+    paddingVertical: 5,
+    marginVertical: 10,
+    fontSize: 12,
     borderRadius: 10,
-    // marginVertical: 650,
-    // position: 'absolute',
-    // left: 0,
-    // right: 0,
     alignItems: 'center',
   },
   fullWidthTouchableText: {
-    color: 'red',
+    color: '#464647',
     fontWeight: 'bold',
-    fontSize: 30,
-
+    fontSize: 25,
     marginVertical: 10,
   },
   betaSection: {

@@ -4,18 +4,24 @@ import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 const UserPanel = () => {
   const navigation = useNavigation();
+  const handleImagePress = () => {
+    navigation.navigate('VisionCameraScreen');
+  };
 
   return (
-    <ScrollView>
-      <LinearGradient colors={['#1e90ff', '#f0e68c']} style={styles.container}>
 
+    <LinearGradient colors={['#1e90ff', '#f0e68c']} style={styles.container}>
 
+      <ScrollView>
         <View style={styles.container}>
           <Text style={styles.title}>User Panel</Text>
 
-          <View style={styles.card1}>
-            <Text style={styles.cardTitle}>Allow Access to Camera </Text>
-          </View>
+
+          <TouchableOpacity onPress={handleImagePress}>
+            <View style={styles.card1}>
+              <Text style={styles.cardTitle}>Allow Access to Camera </Text>
+            </View>
+          </TouchableOpacity>
 
           <View style={styles.touchablesContainer}>
             <TouchableOpacity style={styles.touchable1} onPress={() => navigation.navigate('userPanel2')}>
@@ -41,8 +47,9 @@ const UserPanel = () => {
             <View style={styles.line}></View>
           </View>
         </View>
-      </LinearGradient>
       </ScrollView>
+    </LinearGradient>
+
   );
 };
 
@@ -72,7 +79,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   cardTitle: {
-    fontSize: 26,
+    fontSize: 20,
     fontWeight: 'bold',
     color: 'black',
   },
@@ -107,18 +114,17 @@ const styles = StyleSheet.create({
   },
   fullWidthTouchable: {
     backgroundColor: '#ff8c00',
-    paddingVertical: 2,
+    paddingHorizontal: 40,
+    paddingVertical: 5,
+    marginVertical: 10,
+    fontSize: 12,
     borderRadius: 10,
-    // marginVertical: 650,
-    // position: 'absolute',
-    // left: 0,
-    // right: 0,
     alignItems: 'center',
   },
   fullWidthTouchableText: {
-    color: 'black',
+    color: '#464647',
     fontWeight: 'bold',
-    fontSize: 30,
+    fontSize: 25,
     marginVertical: 10,
   },
   betaSection: {

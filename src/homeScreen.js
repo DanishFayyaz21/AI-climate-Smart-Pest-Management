@@ -1,5 +1,5 @@
-import React, {useRef, useEffect} from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image,ScrollView } from 'react-native';
+import React, { useRef, useEffect } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import MapView, { Marker } from 'react-native-maps';
@@ -8,18 +8,18 @@ const HomeScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <ScrollView>
-      <LinearGradient colors={['#1e90ff', '#f0e68c']} style={styles.container}>
 
+    <LinearGradient colors={['#1e90ff', '#f0e68c']} style={styles.container}>
+      <ScrollView>
         <View style={styles.container}>
           <Text style={styles.title}>AI Climate Smart Pest Management</Text>
 
           <View style={styles.card1}>
-          
-             <Image
-        source={require('../asssets/mapimage.jpeg')}
-        style={styles.mapImage}
-      />
+
+            <Image
+              source={require('../asssets/map.png')}
+              style={styles.mapImage}
+            />
           </View>
           <View style={styles.touchablesContainer}>
             <TouchableOpacity style={styles.touchable1} onPress={() => navigation.navigate('farmSection')}>
@@ -35,10 +35,10 @@ const HomeScreen = () => {
           </View>
 
           <View style={styles.touchablesContainer}>
-            <TouchableOpacity style={styles.touchable2} >
+            <TouchableOpacity style={styles.touchable1} >
               <Text style={styles.touchableText2}>Saved Locations</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.touchable2} >
+            <TouchableOpacity style={styles.touchable1} >
               <Text style={styles.touchableText2}>User Account</Text>
             </TouchableOpacity>
           </View>
@@ -52,8 +52,9 @@ const HomeScreen = () => {
             <View style={styles.line}></View>
           </View>
         </View>
-      </LinearGradient>
-    </ScrollView>
+      </ScrollView>
+    </LinearGradient>
+
 
   );
 };
@@ -62,22 +63,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    // paddingHorizontal: 10,
+
   },
   title: {
-    fontSize: 38,
+    fontSize: 32,
     fontWeight: 'bold',
     marginTop: 20,
     color: '#fff',
-    marginHorizontal: 30,
+    textAlign: "center"
+    // marginHorizontal: 30,
   },
   card1: {
     backgroundColor: '#a9a9a9',
     marginTop: 20,
     height: 180,
-    marginLeft: 20,
-    width: 300,
-    marginRight: 20,
-    alignItems: 'center',
+    // marginLeft: 20,
+    width: "90%",
+    // marginRight: 20,
+    // alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 30,
   },
@@ -85,9 +89,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#a9a9a9',
     marginTop: 20,
     height: 150,
-    marginLeft: 20,
-    marginRight: 20,
-    width: 300,
+    // marginLeft: 20,
+    // marginRight: 20,
+    width: "90%",
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 30,
@@ -115,23 +119,27 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 5,
     borderRadius: 20,
-    marginHorizontal: 40,
+    // marginHorizontal: 40,
     marginBottom: 5,
     marginRight: 30,
   },
   touchableText: {
-    color: 'black',
+    color: '#464647',
     fontWeight: 'bold',
     fontSize: 20,
   },
   touchableText2: {
-    color: 'black',
+    color: '#464647',
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 15,
   },
   fullWidthTouchable: {
     backgroundColor: '#ff8c00',
-    paddingVertical: 2,
+    paddingHorizontal: 40,
+    paddingVertical: 5,
+    marginVertical: 10,
+    // marginHorizontal:16,
+    fontSize: 12,
     borderRadius: 10,
     // marginVertical: 640,
     // position: 'absolute',
@@ -140,9 +148,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   fullWidthTouchableText: {
-    color: 'black',
+    color: '#464647',
     fontWeight: 'bold',
-    fontSize: 30,
+    fontSize: 25,
     marginVertical: 10,
   },
   betaSection: {
@@ -150,7 +158,7 @@ const styles = StyleSheet.create({
     // bottom: 10,
   },
   betaText: {
-    color: 'black',
+    color: '#464647',
     fontWeight: 'bold',
     fontSize: 28,
   },
@@ -161,18 +169,18 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   mapContainer: {
-    height: 300, 
+    height: 300,
     width: '100%',
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
-  map: {
-    ...StyleSheet.absoluteFillObject,
-  },
+  // map: {
+  //   ...StyleSheet.absoluteFillObject,
+  // },
   mapImage: {
     width: '100%',
     height: '100%',
-  borderRadius: 30,
+    borderRadius: 30,
     resizeMode: 'cover',
   },
 });
