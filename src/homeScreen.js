@@ -4,9 +4,11 @@ import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import MapView, { Marker } from 'react-native-maps';
 import { WebView } from 'react-native-webview';
+import Mapbox from '@rnmapbox/maps';
+
 const HomeScreen = () => {
   const navigation = useNavigation();
-
+  Mapbox.setAccessToken('pk.eyJ1IjoibWhhc3NhYW4xMjI2IiwiYSI6ImNsNDl0cjZ0djA5aGYzaHA3NDQzZXA4dWMifQ.gsyzWQ8n-weuD2Az4z0G_w');
   return (
 
     <LinearGradient colors={['#1e90ff', '#f0e68c']} style={styles.container}>
@@ -16,11 +18,32 @@ const HomeScreen = () => {
 
           <View style={styles.card1}>
 
-            <Image
+            {/* <Image
               source={require('../asssets/map.png')}
               style={styles.mapImage}
-            />
+            /> */}
+            {/* <Mapbox.MapView style={styles.map} /> */}
+            <View style={{ flex: 1 }}>
+              <WebView
+                // source={{ uri: 'https://www.google.com/maps/@31.5891719,74.3128884,14.84z?entry=ttu' }}
+
+                source={{
+                  html: `
+                    <html>
+                      <body>
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3398.739408060762!2d74.31722097539873!3d31.58619324388738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39191b66ed955555%3A0xc7e180a52478c762!2sUK%20Center!5e0!3m2!1sen!2s!4v1700835419823!5m2!1sen!2s" width="1000" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </body>
+                    </html>
+                  `,
+                }}
+                // style={{ flex: 1 }}
+                javaScriptEnabled={true}
+                domStorageEnabled={true}
+                onError={(error) => console.error('WebView Error: ', error)}
+              />
+            </View>
           </View>
+
           <View style={styles.touchablesContainer}>
             <TouchableOpacity style={styles.touchable1} onPress={() => navigation.navigate('farmSection')}>
               <Text style={styles.touchableText}>My Farm</Text>
@@ -65,6 +88,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     // paddingHorizontal: 10,
 
+  },
+  map: {
+    flex: 1
   },
   title: {
     fontSize: 32,

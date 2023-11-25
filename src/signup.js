@@ -38,7 +38,7 @@ const SignupScreen = () => {
         <Text style={styles.welcomeText}>Welcome</Text>
         <Formik
           initialValues={{ email: '', password: '' }}
-          validationSchema={SignupSchema}
+          // validationSchema={SignupSchema}
           onSubmit={handleSignup}
         >
           {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
